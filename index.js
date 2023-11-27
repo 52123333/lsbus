@@ -126,7 +126,10 @@ function showCar(num, realtime) {
     for (let i = 0; i < carList.length; i++) {
         let car = carList[i]
         let time = car.ArriveTime.substring(11)
-        $('#car' + num + '_' + stationIdNameMap[car.StationID]).html('<div class="realtime">' + car.BusName + '</div><div class="realtime"><span class="tip">' + time + '</span></div>')
+        let carCellId = '#car' + num + '_' + stationIdNameMap[car.StationID]
+        let directionIcon = num === 1 ? '⬇' : '⬆'
+        $(carCellId).html('<div class="realtime">' + car.BusName + '</div>' +
+            '<div class="realtime"><span class="tip">' + time + '</span><span class="tip">&nbsp;' + directionIcon + '</span></div>')
     }
 }
 
